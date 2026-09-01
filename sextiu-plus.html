@@ -93,6 +93,42 @@
     </div>
   </section>
 
+  <section class="section bg-white" style="padding-bottom:0">
+    <div class="container" style="max-width:760px">
+      <div style="background:var(--near-black);border-radius:var(--radius-lg);padding:26px 24px;margin-bottom:6px">
+        <div style="font:700 11px/1 var(--mono);letter-spacing:.14em;color:var(--yellow);margin-bottom:10px">TAKMARKAÐ TILBOÐ</div>
+        <h2 style="margin:0 0 8px;font-size:22px;color:var(--white)">Prufaðu frítt á fimmtudaginn 3. september!</h2>
+        <p style="margin:0 0 20px;font:400 15px/1.6 var(--font);color:var(--text-on-dark-faint)">Komdu og prófaðu eina 60+ æfingu frítt - engin skuldbinding, engin greiðsla. Veldu kl. 10:00 eða kl. 11:00.</p>
+
+        <form id="prufa-form" action="https://formspree.io/f/xppaojrk" method="POST">
+          <input type="hidden" name="_subject" value="Snerpa - FRÍ PRUFUÆFING 60+ fimmtudaginn 3. september">
+          <div class="form-field on-dark">
+            <label for="prufa-name" style="color:var(--white)">Nafn</label>
+            <input id="prufa-name" type="text" name="name" autocomplete="name">
+          </div>
+          <div class="form-field on-dark">
+            <label for="prufa-time" style="color:var(--white)">Tími - fimmtudaginn 3. september</label>
+            <select id="prufa-time" name="time" data-endpoint-select>
+              <option value="kl. 10:00 - FRÍ PRUFUÆFING 60+ (3. sept)" data-endpoint="https://formspree.io/f/xppaojrk">kl. 10:00</option>
+              <option value="kl. 11:00 - FRÍ PRUFUÆFING 60+ (3. sept)" data-endpoint="https://formspree.io/f/xkjwpvby">kl. 11:00</option>
+            </select>
+          </div>
+          <div class="form-field on-dark">
+            <label for="prufa-email" style="color:var(--white)">Netfang</label>
+            <input id="prufa-email" type="email" inputmode="email" name="email" autocomplete="email">
+          </div>
+          <div class="form-field on-dark">
+            <label for="prufa-tel" style="color:var(--white)">Sími</label>
+            <input id="prufa-tel" type="tel" inputmode="tel" name="tel" autocomplete="tel">
+          </div>
+          <button class="btn btn-available btn-block" type="submit">Skrá mig í frípróf</button>
+          <p class="form-status" data-form-status hidden></p>
+        </form>
+
+        <p style="margin:16px 0 0;font:400 13px/1.5 var(--font);color:var(--text-on-dark-faint)">Þetta er ein frí prufuæfing - engin skuldbinding né greiðsla.</p>
+      </div>
+    </div>
+  </section>
 
   <section class="section bg-white">
     <div class="container" style="max-width:760px">
