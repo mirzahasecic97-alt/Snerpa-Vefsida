@@ -116,23 +116,23 @@
 
       <h2 style="font-size:20px;margin-bottom:14px">Æfingapakkar</h2>
       <div data-pakki-picker style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:22px">
-        <div class="price-block" style="margin-bottom:0">
+        <div class="price-block" style="margin-bottom:0;display:flex;flex-direction:column">
           <div class="label">ÆFINGA- OG NÆRINGARPAKKI</div>
           <div class="amount">28.990 kr <span class="unit">/ mán</span></div>
           <p class="note">Æfingaáætlun og næringarráðgjöf saman - heildstæð nálgun á árangur.</p>
-          <button type="button" class="btn btn-available btn-block" style="margin-top:16px" data-pick-pakki="Æfinga- og næringarpakki (28.990 kr/mán)">Skrá mig</button>
+          <button type="button" class="btn btn-available btn-block" style="margin-top:auto;padding-top:16px" data-pick-pakki="Æfinga- og næringarpakki (28.990 kr/mán)">Skrá mig</button>
         </div>
-        <div class="price-block" style="margin-bottom:0">
+        <div class="price-block" style="margin-bottom:0;display:flex;flex-direction:column">
           <div class="label">ÆFINGAPAKKI</div>
           <div class="amount">18.990 kr <span class="unit">/ mán</span></div>
           <p class="note">Æfingapakki sniðinn að vilja og markmiðum hvers og eins.</p>
-          <button type="button" class="btn btn-available btn-block" style="margin-top:16px" data-pick-pakki="Æfingapakki (18.990 kr/mán)">Skrá mig</button>
+          <button type="button" class="btn btn-available btn-block" style="margin-top:auto;padding-top:16px" data-pick-pakki="Æfingapakki (18.990 kr/mán)">Skrá mig</button>
         </div>
-        <div class="price-block" style="margin-bottom:0">
+        <div class="price-block" style="margin-bottom:0;display:flex;flex-direction:column">
           <div class="label">NÆRINGARÞJÁLFUN</div>
           <div class="amount">18.990 kr <span class="unit">/ mán</span></div>
           <p class="note">Persónuleg næringarráðgjöf og eftirfylgni.</p>
-          <button type="button" class="btn btn-available btn-block" style="margin-top:16px" data-pick-pakki="Næringarþjálfun (18.990 kr/mán)">Skrá mig</button>
+          <button type="button" class="btn btn-available btn-block" style="margin-top:auto;padding-top:16px" data-pick-pakki="Næringarþjálfun (18.990 kr/mán)">Skrá mig</button>
         </div>
       </div>
 
@@ -148,8 +148,8 @@
             <input id="pakki-name" type="text" name="Nafn" autocomplete="name">
           </div>
           <div class="form-field on-dark">
-            <label for="pakki-kennitala" style="color:var(--white)">Kennitala</label>
-            <input id="pakki-kennitala" type="text" inputmode="numeric" name="Kennitala" placeholder="XXXXXX-XXXX" autocomplete="off" required>
+            <label for="pakki-age" style="color:var(--white)">Aldur</label>
+            <input id="pakki-age" type="number" inputmode="numeric" name="Aldur" min="1" max="120">
           </div>
           <div class="form-field on-dark">
             <label for="pakki-sport" style="color:var(--white)">Hvaða íþrótt stundar þú?</label>
@@ -160,8 +160,12 @@
             <input id="pakki-tel" type="tel" inputmode="tel" name="Sími" autocomplete="tel">
           </div>
           <div class="form-field on-dark">
-            <label for="pakki-age" style="color:var(--white)">Aldur</label>
-            <input id="pakki-age" type="number" inputmode="numeric" name="Aldur" min="1" max="120">
+            <label for="pakki-email" style="color:var(--white)">Netfang</label>
+            <input id="pakki-email" type="email" inputmode="email" name="Netfang" autocomplete="email">
+          </div>
+          <div class="form-field on-dark">
+            <label for="pakki-kennitala" style="color:var(--white)">Kennitala</label>
+            <input id="pakki-kennitala" type="text" inputmode="numeric" name="Kennitala" placeholder="XXXXXX-XXXX" autocomplete="off" required>
           </div>
           <button class="btn btn-available btn-block" type="submit">Senda skráningu</button>
           <p class="form-status" data-form-status hidden></p>
