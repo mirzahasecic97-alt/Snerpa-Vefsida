@@ -293,7 +293,7 @@
       nextBtn.disabled = true;
       nextBtn.textContent = "Sendi...";
 
-      fetch("https://formspree.io/f/xdendnke", {
+      fetch("https://formspree.io/f/xvkorkdj", {
         method: "POST",
         body: payload,
         headers: { Accept: "application/json" }
