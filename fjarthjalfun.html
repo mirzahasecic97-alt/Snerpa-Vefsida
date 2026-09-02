@@ -115,22 +115,59 @@
       </div>
 
       <h2 style="font-size:20px;margin-bottom:14px">Æfingapakkar</h2>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:22px">
+      <div data-pakki-picker style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:22px">
         <div class="price-block" style="margin-bottom:0">
           <div class="label">ÆFINGA- OG NÆRINGARPAKKI</div>
           <div class="amount">28.990 kr <span class="unit">/ mán</span></div>
           <p class="note">Æfingaáætlun og næringarráðgjöf saman - heildstæð nálgun á árangur.</p>
+          <button type="button" class="btn btn-available btn-block" style="margin-top:16px" data-pick-pakki="Æfinga- og næringarpakki (28.990 kr/mán)">Skrá mig</button>
         </div>
         <div class="price-block" style="margin-bottom:0">
           <div class="label">ÆFINGAPAKKI</div>
           <div class="amount">18.990 kr <span class="unit">/ mán</span></div>
           <p class="note">Æfingapakki sniðinn að vilja og markmiðum hvers og eins.</p>
+          <button type="button" class="btn btn-available btn-block" style="margin-top:16px" data-pick-pakki="Æfingapakki (18.990 kr/mán)">Skrá mig</button>
         </div>
         <div class="price-block" style="margin-bottom:0">
           <div class="label">NÆRINGARÞJÁLFUN</div>
           <div class="amount">18.990 kr <span class="unit">/ mán</span></div>
           <p class="note">Persónuleg næringarráðgjöf og eftirfylgni.</p>
+          <button type="button" class="btn btn-available btn-block" style="margin-top:16px" data-pick-pakki="Næringarþjálfun (18.990 kr/mán)">Skrá mig</button>
         </div>
+      </div>
+
+      <div id="pakki-form-box" hidden style="background:var(--near-black);border-radius:var(--radius-lg);padding:26px 24px;margin-bottom:22px">
+        <div style="font:700 11px/1 var(--mono);letter-spacing:.14em;color:var(--yellow);margin-bottom:10px">VALINN PAKKI</div>
+        <h3 data-selected-pakki style="margin:0 0 18px;font-size:19px;color:var(--white)">-</h3>
+
+        <form id="pakki-form" action="https://formspree.io/f/xdendnke" method="POST">
+          <input type="hidden" name="_subject" value="Snerpa - Fjarþjálfun skráning">
+          <input type="hidden" name="Pakki" data-pakki-field value="">
+          <div class="form-field on-dark">
+            <label for="pakki-name" style="color:var(--white)">Nafn</label>
+            <input id="pakki-name" type="text" name="Nafn" autocomplete="name">
+          </div>
+          <div class="form-field on-dark">
+            <label for="pakki-kennitala" style="color:var(--white)">Kennitala</label>
+            <input id="pakki-kennitala" type="text" inputmode="numeric" name="Kennitala" placeholder="XXXXXX-XXXX" autocomplete="off" required>
+          </div>
+          <div class="form-field on-dark">
+            <label for="pakki-sport" style="color:var(--white)">Hvaða íþrótt stundar þú?</label>
+            <input id="pakki-sport" type="text" name="Íþrótt" autocomplete="off">
+          </div>
+          <div class="form-field on-dark">
+            <label for="pakki-tel" style="color:var(--white)">Sími</label>
+            <input id="pakki-tel" type="tel" inputmode="tel" name="Sími" autocomplete="tel">
+          </div>
+          <div class="form-field on-dark">
+            <label for="pakki-age" style="color:var(--white)">Aldur</label>
+            <input id="pakki-age" type="number" inputmode="numeric" name="Aldur" min="1" max="120">
+          </div>
+          <button class="btn btn-available btn-block" type="submit">Senda skráningu</button>
+          <p class="form-status" data-form-status hidden></p>
+        </form>
+
+        <p style="margin:16px 0 0;font:400 13px/1.5 var(--font);color:var(--text-on-dark-faint)">Þetta eyðublað er ekki greiðsla - við höfum samband við þig til að ganga frá skráningu.</p>
       </div>
     </div>
   </section>

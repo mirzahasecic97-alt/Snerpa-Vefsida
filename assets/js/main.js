@@ -320,6 +320,28 @@
     render();
   }
 
+  /* ---------- Fjarþjálfun pakkapicker (smellt á pakka -> skráningarbox birtist) ---------- */
+  function initPakkiPicker() {
+    var picker = document.querySelector("[data-pakki-picker]");
+    var box = document.getElementById("pakki-form-box");
+    if (!picker || !box) return;
+
+    var label = box.querySelector("[data-selected-pakki]");
+    var field = box.querySelector("[data-pakki-field]");
+
+    picker.querySelectorAll("[data-pick-pakki]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var pakki = btn.getAttribute("data-pick-pakki");
+        if (label) label.textContent = pakki;
+        if (field) field.value = pakki;
+        box.hidden = false;
+        box.scrollIntoView({ behavior: "smooth", block: "start" });
+        var nameField = box.querySelector("input[type='text']");
+        if (nameField) nameField.focus();
+      });
+    });
+  }
+
   /* ---------- Generic scroll-track carousel (umsagnir, þjálfarar) ---------- */
   function initCarousel(opts) {
     var track = document.getElementById(opts.trackId);
@@ -447,6 +469,12 @@
 
     // 60+ skráning.
     wireFormspreeForm(document.getElementById("sextiu-form"));
+
+    // 60+ frí prufuæfing.
+    wireFormspreeForm(document.getElementById("prufa-form"));
+
+    // Fjarþjálfun pakkaskráning.
+    wireFormspreeForm(document.getElementById("pakki-form"));
   }
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -456,6 +484,7 @@
     initTrainingCalendar();
     initAccordions();
     initWizard();
+    initPakkiPicker();
     initReviews();
     initCoaches();
     initMailtoForms();
