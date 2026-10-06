@@ -342,6 +342,39 @@
     });
   }
 
+  /* ---------- Prófaðu frítt (val á æfingu -> rétt form birtist, styður #60plus / #handbolti) ---------- */
+  function initTrialPicker() {
+    var picker = document.querySelector("[data-trial-picker]");
+    if (!picker) return;
+    var buttons = Array.prototype.slice.call(picker.querySelectorAll("[data-trial-pick]"));
+    var panels = Array.prototype.slice.call(document.querySelectorAll("[data-trial-panel]"));
+
+    function show(key, scroll) {
+      var target = null;
+      panels.forEach(function (p) {
+        var match = p.getAttribute("data-trial-panel") === key;
+        p.hidden = !match;
+        if (match) target = p;
+      });
+      buttons.forEach(function (b) {
+        b.classList.toggle("is-selected", b.getAttribute("data-trial-pick") === key);
+      });
+      if (target && scroll) target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    buttons.forEach(function (b) {
+      b.addEventListener("click", function () {
+        var key = b.getAttribute("data-trial-pick");
+        show(key, true);
+        if (window.history && history.replaceState) history.replaceState(null, "", "#" + key);
+      });
+    });
+
+    var initial = (window.location.hash || "").replace("#", "");
+    var valid = buttons.some(function (b) { return b.getAttribute("data-trial-pick") === initial; });
+    if (valid) show(initial, true);
+  }
+
   /* ---------- Generic scroll-track carousel (umsagnir, þjálfarar) ---------- */
   function initCarousel(opts) {
     var track = document.getElementById(opts.trackId);
@@ -491,6 +524,7 @@
     initAccordions();
     initWizard();
     initPakkiPicker();
+    initTrialPicker();
     initReviews();
     initCoaches();
     initMailtoForms();
